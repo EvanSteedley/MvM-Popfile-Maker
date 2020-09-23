@@ -20,6 +20,8 @@ public abstract class Enclosure
 		String result = Name + "\n" + Beginning + "\n";
 		for (String s : Middle)
 		{
+			if(s.trim().equals(""))
+				continue;
 			for(int i = 0; i < level+1; i++)
 				s = "\t" + s;
 			s +="\n";

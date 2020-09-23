@@ -7,9 +7,13 @@ public class TFBot extends Enclosure {
 	private Parameter Skill = new Parameter("Skill");
 	private Parameter BotName = new Parameter("Name");
 	
-	public TFBot(String cl)
+	public TFBot()
 	{
-		Class.setText(cl);
+	}
+	
+	public TFBot(String Name)
+	{
+		BotName.setText(Name);
 	}
 	
 	public TFBot(String cl, String Name)
@@ -22,11 +26,10 @@ public class TFBot extends Enclosure {
 	public String toString()
 	{
 		Name = "TFBot";
-		if(BotName == null)
-			BotName.setText(Class.getText());
 		for(Parameter x : OtherParameters)
 		{
-			Middle.add(x + "\n");
+			if(!x.toString().trim().equals(""))
+				Middle.add(x.toString());
 		}
 		Middle.add(Class.toString());
 		Middle.add(Skill.toString());

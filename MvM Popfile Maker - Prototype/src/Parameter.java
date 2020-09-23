@@ -1,11 +1,13 @@
 
 public class Parameter {
 private String Name;
-private int value = -10909090;
+private int value = 0;
+private double fvalue = 0.0;
 private boolean isBool;
 private String text;
 public boolean isString = false;
 public boolean isInt = false;
+public boolean isFloat = false;
 public boolean state = false;
 
 public Parameter(String N, int v)
@@ -13,6 +15,13 @@ public Parameter(String N, int v)
 	isInt = true;
 	Name = N;
 	value = v;
+}
+
+public Parameter(String N, double v)
+{
+	isFloat = true;
+	Name = N;
+	fvalue = v;
 }
 
 public Parameter(String N, boolean b)
@@ -37,11 +46,7 @@ Name = N;
 @Override
 public String toString()
 	{
-//	for(int i = 0; i < level; i++)
-//	{
-//		Name = "\t" + Name;
-//	}
-	if(!isBool && !isInt && !isString)
+	if(!isBool && !isInt && !isString && !isFloat)
 		return "";
 	if(isBool)
 		if(state)
@@ -50,6 +55,8 @@ public String toString()
 			return Name + " no";
 	else if (isInt)
 		return Name + " " + value;
+	else if (isFloat)
+		return Name + " " + fvalue;
 	else return Name + " " + text;
 	}
 
@@ -59,6 +66,12 @@ public int getValue()
 		return value;
 	return -100000;
 }
+public double getFloatValue()
+{
+	if(isFloat)
+		return fvalue;
+	return -9999.9;
+	}
 public boolean getState()
 {
 	if(isBool)
@@ -78,7 +91,7 @@ public void setValue(int i)
 	if(isInt)
 		value = i;
 	else
-		if(!isBool && !isString)
+		if(!isBool && !isString && !isFloat)
 		{
 			value = i;
 			isInt = true;
@@ -89,7 +102,7 @@ public void setState(boolean c)
 	if(isBool)
 		state = c;
 	else
-		if(!isInt && !isString)
+		if(!isInt && !isString &&!isFloat)
 		{
 			state = c;
 			isBool = true;
@@ -101,10 +114,22 @@ public void setText(String i)
 	if(isString)
 		text = i;
 	else
-		if(!isBool && !isString)
+		if(!isBool && !isString && !isFloat)
 		{
 			text = i;
 			isString = true;
+		}
+}
+
+public void setFloatValue(double i)
+{
+	if(isFloat)
+		fvalue = i;
+	else
+		if(!isBool && !isString && !isInt)
+		{
+			fvalue = i;
+			isFloat = true;
 		}
 }
 

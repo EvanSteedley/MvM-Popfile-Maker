@@ -5,7 +5,6 @@ public class WaveSchedule extends Enclosure
 private Parameter StartingCurrency = new Parameter("StartingCurrency", 400);
 private Parameter RespawnWaveTime = new Parameter("RespawnWaveTime", 5);
 private Parameter CanBotsAttackWhileInSpawnRoom = new Parameter("CanBotsAttackWhileInSpawnRoom", false);
-private Parameter testNull = new Parameter("Test");
 public ArrayList<Enclosure> OtherThings = new ArrayList<Enclosure>();
 
 @Override
@@ -15,7 +14,6 @@ public String toString()
 	Middle.add(StartingCurrency.toString());
 	Middle.add(RespawnWaveTime.toString());
 	Middle.add(CanBotsAttackWhileInSpawnRoom.toString());
-	Middle.add(testNull.toString());
 	
 	for(Enclosure x : OtherThings)
 	{
